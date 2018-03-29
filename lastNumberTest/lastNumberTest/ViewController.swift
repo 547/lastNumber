@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
     @IBAction func change(_ sender: UIButton) {
         guard let number = Decimal.init(string: textField.text ?? "") else { return }
-        let result = NumberHandler.lastAdd(Decimal.init(-100), about: number)
+        let result = NumberHandler.lastAdd(Decimal.init(-100), to: number)
         textField.text = result.description
     }
 
@@ -33,7 +33,7 @@ class NumberHandler {
 }
 extension NumberHandler {
     ///末位数 加 几
-    static func lastAdd(_ addNumber:Decimal, about number:Decimal) -> Decimal {
+    static func lastAdd(_ addNumber:Decimal, to number:Decimal) -> Decimal {
         let numberString = number.description
         
         let pointIndex = numberString.reversed().index(of: ".") ?? 0
